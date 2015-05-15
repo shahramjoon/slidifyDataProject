@@ -119,12 +119,12 @@ r <- c ( "AFRICA", "EUROPE", "ASIA", "LATIN AMERICA AND THE CARIBBEAN" , "Austra
 
 continentaldata <- ddply ( subset(data, Area %in% r), c("Area", "Period"), summarise, total=sum(cnt) )
 
-n5 <- nPlot(total~Period, group="Area", data=continentaldata, type = "multiBarChart")
-n5$xAxis(axisLabel = 'Year Group')
-n5$yAxis(axisLabel = 'Birth(Thousands)')
-n5$chart(reduceXTicks = FALSE)
-n5$xAxis(staggerLabels = TRUE)
-n5$show('inline')
+n6 <- nPlot(total~Period, group="Area", data=continentaldata, type = "multiBarChart")
+n6$xAxis(axisLabel = 'Year Group')
+n6$yAxis(axisLabel = 'Birth(Thousands)')
+n6$chart(reduceXTicks = FALSE)
+n6$xAxis(staggerLabels = TRUE)
+n6$show('inline')
 
 
 ```
