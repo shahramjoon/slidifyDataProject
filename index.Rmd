@@ -1,0 +1,131 @@
+---
+title       : Births by five-year age group of mother, major area, region and country, 1950-2100
+subtitle    : Worlds Population Prospect, United Nations
+author      : shahramjoon
+job         : Data Scientist
+framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : tomorrow      # 
+widgets     : [bootstrap, quiz, shiny, interactive]    # {mathjax, quiz, bootstrap}        
+ext_widgets :  {rCharts: ["libraries/highcharts", "libraries/polycharts",libraries/nvd3", "libraries/morris"]} 
+mode        : selfcontained # {standalone, draft}
+knit        : slidify::knit2slides
+---
+
+## Abstract
+> * Data is provided from United Nation, Population Divsion  <a href="http//http://esa.un.org/wpp/Excel-Data/fertility.htm">click here to go to United Nations website</a>
+> * Data presents number of Birth By 5 year age group of Mother between 1950-2010
+> * Mother Age is categorized to 5 boundaries:    15-19 ,  20-24,     25-29,     30-34,    35-39,    40-44,    45-49
+> * Data is from 199 countries , grouped to many different geograhical areas and continents, total of 36 areas, one is WORLD Population.   
+> * Data covers births between 1950-2010, in 12 groups covering 5 years per group 
+> * Application is using ShinyApp development framework.link to application <a href="https://shahramjoon.shinyapps.io/MyApp">here</a>
+> * It provides a user interface that viewer can choose his/her own particular country or region from Drop Down. 
+> * After user makes the choice, a plot is refresh on right side, presenting data related to user's chosen country or region. Plot is located on tab labeled "country/region" 
+> * Supporting Data of Plot related to user's chosen country or region is refreshed on a tab lableled Table
+
+--- 
+
+##  Top Ten Most Powerful Countries in the World
+
+Graph is showing number of Births based on Mother Age 
+
+```{r  nvd3plot22, results = 'asis', comment = NA, message = F, echo = F }
+library(reshape2)
+library(plyr)
+library(rCharts)
+library(knitr)
+
+fertility <- read.table("fertility.csv", 
+                        sep=",", 
+                        header=TRUE, 
+                        na.strings=c("NA","#DIV/0!", ""), 
+                        stringsAsFactors=FALSE,
+                        fileEncoding="latin1")
+
+
+
+
+country <- unique(fertility[fertility$Notes=="c", c("Area")])
+region <- unique(fertility[is.na(fertility$Notes), c("Area")])
+
+fertility$Notes <- factor(fertility$Notes)
+fertility$Period <- factor(fertility$Period)
+fertility$Variant <- NULL
+fertility <- fertility [1:2814,]
+country <- sort(country)
+region <- sort(region)
+
+data <- melt (fertility, id.vars=c("Area","Period") ,
+              measure.vars=c("g15_19","g20_24", "g25_29", "g30_34", "g35_39", "g40_44", "g45_49"), 
+              variable.name="agegroup", value.name="cnt")
+
+
+summarydata <- ddply ( data, c("Area", "Period"), summarise, total=sum(cnt))
+
+top10 <- c ("United States of America" , "China" , "India", "Germany", "United Kingdom"  , "France" , "Japan" , "Russian Federation" , "Brazil" , "Italy" )
+
+top10data <- ddply ( subset(data, Area %in% top10), c("Area", "Period"), summarise, total=sum(cnt))
+
+n1 <- nPlot(total~Period, group="Area", data=top10data, type = "multiBarChart")
+  
+
+top10dataAgeGroup <- ddply ( subset(data, Area %in% top10), c("Area", "agegroup"), summarise, total=sum(cnt))
+
+
+
+n2 <- nPlot(total~agegroup, group="Area", data=top10dataAgeGroup, type = "multiBarChart")
+n2$xAxis(axisLabel = 'Mother Age Group')
+n2$yAxis(axisLabel = 'Birth(Thousands)')
+n2$chart(reduceXTicks = FALSE)
+n2$xAxis(staggerLabels = TRUE)
+
+  
+n2$show('inline')
+
+
+```
+
+---
+
+##  Top Ten Most Powerful Countries in the World
+
+Graph is showing number of Births based on Mother Age 
+
+
+```{r  nvd3plot23, results = 'asis', comment = NA, message = F, echo = F }
+
+n3 <- nPlot(total~Area, group="agegroup", data=top10dataAgeGroup, type = "multiBarChart")
+n3$xAxis(axisLabel = 'Country')
+n3$yAxis(axisLabel = 'Birth(Thousands)')
+
+n3$chart(reduceXTicks = FALSE)
+n3$xAxis(staggerLabels = TRUE)
+
+
+n3$show('inline')
+
+
+```
+
+---
+
+##  Seven continents and WORLD
+
+Graph is showing Total Number of Births between 1950-2010 
+
+```{r  nvd3plot, results = 'asis', comment = NA, message = F, echo = F }
+
+r <- c ( "AFRICA", "EUROPE", "ASIA", "LATIN AMERICA AND THE CARIBBEAN" , "Australia/New Zealand", "WORLD", "NORTHERN AMERICA", "Central America")
+
+continentaldata <- ddply ( subset(data, Area %in% r), c("Area", "Period"), summarise, total=sum(cnt) )
+
+n5 <- nPlot(total~Period, group="Area", data=continentaldata, type = "multiBarChart")
+n5$xAxis(axisLabel = 'Year Group')
+n5$yAxis(axisLabel = 'Birth(Thousands)')
+n5$chart(reduceXTicks = FALSE)
+n5$xAxis(staggerLabels = TRUE)
+n5$show('inline')
+
+
+```
+ 
