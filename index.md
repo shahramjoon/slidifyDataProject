@@ -30,21 +30,21 @@ knit        : slidify::knit2slides
 Graph is showing number of Births based on Mother Age 
 
 
-<div id = 'chart2c6c17062fd3' class = 'rChart nvd3'></div>
+<div id = 'chart14c873c37850' class = 'rChart nvd3'></div>
 <script type='text/javascript'>
  $(document).ready(function(){
-      drawchart2c6c17062fd3()
+      drawchart14c873c37850()
     });
-    function drawchart2c6c17062fd3(){  
+    function drawchart14c873c37850(){  
       var opts = {
- "dom": "chart2c6c17062fd3",
+ "dom": "chart14c873c37850",
 "width":    800,
 "height":    400,
 "x": "agegroup",
 "y": "total",
 "group": "Area",
 "type": "multiBarChart",
-"id": "chart2c6c17062fd3" 
+"id": "chart14c873c37850" 
 },
         data = [
  {
@@ -431,7 +431,7 @@ Graph is showing number of Births based on Mother Age
   .reduceXTicks(false)
           
         chart.xAxis
-  .axisLabel("Mother Age Group")
+  .axisLabel("Mother Age Group ")
   .staggerLabels(true)
 
         
@@ -459,21 +459,21 @@ Graph is showing number of Births based on Mother Age
 
 
 
-<div id = 'chart2c6c7f22776' class = 'rChart nvd3'></div>
+<div id = 'chart14c827af174c' class = 'rChart nvd3'></div>
 <script type='text/javascript'>
  $(document).ready(function(){
-      drawchart2c6c7f22776()
+      drawchart14c827af174c()
     });
-    function drawchart2c6c7f22776(){  
+    function drawchart14c827af174c(){  
       var opts = {
- "dom": "chart2c6c7f22776",
+ "dom": "chart14c827af174c",
 "width":    800,
 "height":    400,
 "x": "Area",
 "y": "total",
 "group": "agegroup",
 "type": "multiBarChart",
-"id": "chart2c6c7f22776" 
+"id": "chart14c827af174c" 
 },
         data = [
  {
@@ -887,21 +887,21 @@ Graph is showing number of Births based on Mother Age
 Graph is showing Total Number of Births between 1950-2010 
 
 
-<div id = 'chart2c6c2a543eaa' class = 'rChart nvd3'></div>
+<div id = 'chart14c85f004f78' class = 'rChart nvd3'></div>
 <script type='text/javascript'>
  $(document).ready(function(){
-      drawchart2c6c2a543eaa()
+      drawchart14c85f004f78()
     });
-    function drawchart2c6c2a543eaa(){  
+    function drawchart14c85f004f78(){  
       var opts = {
- "dom": "chart2c6c2a543eaa",
+ "dom": "chart14c85f004f78",
 "width":    800,
 "height":    400,
 "x": "Period",
 "y": "total",
 "group": "Area",
 "type": "multiBarChart",
-"id": "chart2c6c2a543eaa" 
+"id": "chart14c85f004f78" 
 },
         data = [
  {

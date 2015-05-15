@@ -16,7 +16,8 @@
   <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="libraries/widgets/bootstrap/css/bootstrap.css"></link>
 <link rel=stylesheet href="libraries/widgets/quiz/css/demo.css"></link>
 <link rel=stylesheet href="libraries/widgets/interactive/css/aceeditor.css"></link>
-<link rel=stylesheet href="libraries/widgets/morris/css/morris.css"></link>
+<link rel=stylesheet href="libraries/widgets/nvd3/css/nv.d3.css"></link>
+<link rel=stylesheet href="libraries/widgets/nvd3/css/rNVD3.css"></link>
 <link rel=stylesheet href="./assets/css/ribbons.css"></link>
 
   
@@ -27,14 +28,10 @@
     src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
   </script>
   
-  <script src="libraries/widgets/highcharts/js/jquery-1.9.1.min.js"></script>
-<script src="libraries/widgets/highcharts/js/highcharts.js"></script>
-<script src="libraries/widgets/highcharts/js/highcharts-more.js"></script>
-<script src="libraries/widgets/highcharts/js/exporting.js"></script>
-<script src="libraries/widgets/polycharts/js/polychart2.standalone.js"></script>
-<script src="libraries/widgets/morris/js/jquery-1.8.2.min.js"></script>
-<script src="libraries/widgets/morris/js/raphael-2.1.0.min.js"></script>
-<script src="libraries/widgets/morris/js/morris.min.js"></script>
+  <script src="libraries/widgets/nvd3/js/jquery-1.8.2.min.js"></script>
+<script src="libraries/widgets/nvd3/js/d3.v3.min.js"></script>
+<script src="libraries/widgets/nvd3/js/nv.d3.min-new.js"></script>
+<script src="libraries/widgets/nvd3/js/fisheye.js"></script>
 
 
 </head>
@@ -81,22 +78,22 @@
   <article data-timings="">
     <p>Graph is showing number of Births based on Mother Age </p>
 
-<div id = 'chart2c6c17062fd3' class = 'rChart nvd3'></div>
+<div id = 'chart14c873c37850' class = 'rChart nvd3'></div>
 
 <script type='text/javascript'>
  $(document).ready(function(){
-      drawchart2c6c17062fd3()
+      drawchart14c873c37850()
     });
-    function drawchart2c6c17062fd3(){  
+    function drawchart14c873c37850(){  
       var opts = {
- "dom": "chart2c6c17062fd3",
+ "dom": "chart14c873c37850",
 "width":    800,
 "height":    400,
 "x": "agegroup",
 "y": "total",
 "group": "Area",
 "type": "multiBarChart",
-"id": "chart2c6c17062fd3" 
+"id": "chart14c873c37850" 
 },
         data = [
  {
@@ -483,7 +480,7 @@
   .reduceXTicks(false)
           
         chart.xAxis
-  .axisLabel("Mother Age Group")
+  .axisLabel("Mother Age Group ")
   .staggerLabels(true)
 
         
@@ -514,22 +511,22 @@
   <article data-timings="">
     <p>Graph is showing number of Births based on Mother Age </p>
 
-<div id = 'chart2c6c7f22776' class = 'rChart nvd3'></div>
+<div id = 'chart14c827af174c' class = 'rChart nvd3'></div>
 
 <script type='text/javascript'>
  $(document).ready(function(){
-      drawchart2c6c7f22776()
+      drawchart14c827af174c()
     });
-    function drawchart2c6c7f22776(){  
+    function drawchart14c827af174c(){  
       var opts = {
- "dom": "chart2c6c7f22776",
+ "dom": "chart14c827af174c",
 "width":    800,
 "height":    400,
 "x": "Area",
 "y": "total",
 "group": "agegroup",
 "type": "multiBarChart",
-"id": "chart2c6c7f22776" 
+"id": "chart14c827af174c" 
 },
         data = [
  {
@@ -947,22 +944,22 @@
   <article data-timings="">
     <p>Graph is showing Total Number of Births between 1950-2010 </p>
 
-<div id = 'chart2c6c2a543eaa' class = 'rChart nvd3'></div>
+<div id = 'chart14c85f004f78' class = 'rChart nvd3'></div>
 
 <script type='text/javascript'>
  $(document).ready(function(){
-      drawchart2c6c2a543eaa()
+      drawchart14c85f004f78()
     });
-    function drawchart2c6c2a543eaa(){  
+    function drawchart14c85f004f78(){  
       var opts = {
- "dom": "chart2c6c2a543eaa",
+ "dom": "chart14c85f004f78",
 "width":    800,
 "height":    400,
 "x": "Period",
 "y": "total",
 "group": "Area",
 "type": "multiBarChart",
-"id": "chart2c6c2a543eaa" 
+"id": "chart14c85f004f78" 
 },
         data = [
  {

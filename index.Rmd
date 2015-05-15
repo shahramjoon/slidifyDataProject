@@ -34,6 +34,7 @@ library(reshape2)
 library(plyr)
 library(rCharts)
 library(knitr)
+opts_chunk$set(comment = NA, results = 'asis', comment = NA, tidy = F)
 
 fertility <- read.table("fertility.csv", 
                         sep=",", 
@@ -74,12 +75,13 @@ top10dataAgeGroup <- ddply ( subset(data, Area %in% top10), c("Area", "agegroup"
 
 
 n2 <- nPlot(total~agegroup, group="Area", data=top10dataAgeGroup, type = "multiBarChart")
-n2$xAxis(axisLabel = 'Mother Age Group')
+n2$xAxis(axisLabel = 'Mother Age Group ')
 n2$yAxis(axisLabel = 'Birth(Thousands)')
 n2$chart(reduceXTicks = FALSE)
 n2$xAxis(staggerLabels = TRUE)
 
   
+
 n2$show('inline')
 
 
@@ -100,7 +102,6 @@ n3$yAxis(axisLabel = 'Birth(Thousands)')
 
 n3$chart(reduceXTicks = FALSE)
 n3$xAxis(staggerLabels = TRUE)
-
 
 n3$show('inline')
 
@@ -124,8 +125,8 @@ n6$xAxis(axisLabel = 'Year Group')
 n6$yAxis(axisLabel = 'Birth(Thousands)')
 n6$chart(reduceXTicks = FALSE)
 n6$xAxis(staggerLabels = TRUE)
-n6$show('inline')
 
+n6$show('inline')
 
 ```
  
